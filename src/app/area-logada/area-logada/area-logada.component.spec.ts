@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContatoComponent } from './contato.component';
+import { AreaLogadaComponent } from './area-logada.component';
 
-describe('ContatoComponent', () => {
-  let component: ContatoComponent;
-  let fixture: ComponentFixture<ContatoComponent>;
+describe('AreaLogadaComponent', () => {
+  let component: AreaLogadaComponent;
+  let fixture: ComponentFixture<AreaLogadaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContatoComponent ]
+      declarations: [ AreaLogadaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContatoComponent);
+    fixture = TestBed.createComponent(AreaLogadaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -61,9 +61,7 @@ export class AuthService {
         return true
       }
       else{
-        this.router.navigate(['login'])
         return false;
-        
       }
   }
 }
