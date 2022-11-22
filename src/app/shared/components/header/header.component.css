@@ -1,0 +1,33 @@
+.header {
+    text-align: center;
+    padding: 0.8rem;
+    background-color: rgb(66, 76, 189);
+}
+
+header.title {
+ color: white;
+ margin: 0;
+ font-size: 2rem;
+}
+
+.nav-bar-list{
+    background-color: blue;
+
+    
+
+}
+
+li {
+    display: inline;
+}
+
+a{
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.ativado{
+    background-color: red;
+}

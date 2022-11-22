@@ -1,0 +1,31 @@
+<div class="container text-center p-5">
+
+    <div *ngIf="estaCarregando" class="spinner-border" role="status">
+        <span class="sr-only"></span>
+    </div>
+
+    <div *ngIf="notFound">
+        <h2>Deu erro :(</h2>
+        <button class="btn btn-warning" (click)="getContato()">Tentar Novamente</button>
+    </div>
+
+
+    <div *ngIf="!estaCarregando && !notFound">
+        <table class="table table-hover">
+            <tr>
+
+                <th>Nome</th>
+                <th>Ações</th>
+
+            </tr>
+
+            <tr *ngFor="let contato of contatos">
+                <td>{{contato.nome}}</td>
+                <td>
+                    <button class="btn btn-secondary" (click)="goToDetails(contato.id)">Ver detalhes</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>

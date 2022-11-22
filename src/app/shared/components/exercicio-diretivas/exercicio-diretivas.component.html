@@ -1,0 +1,39 @@
+<p>Valor Atual dentro de deveExibir: {{deveExibir}}</p>
+
+<button (click)="trocarValor()">Trocar valor</button>
+
+<div *ngIf="deveExibir else elseBlock1">
+    Olá! Estou dentro do ngIf
+</div>
+
+<ng-template #elseBlock1>
+    Vou Ser Exibido Quando Apenas quando for false
+</ng-template>
+
+
+
+<div *ngIf="soma(5,6) > 10">
+    Olá! Estou dentro do ngIf na soma
+</div>
+
+<div *ngIf="deveExibir; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock> Vai mostrar se for true do formato numero 2</ng-template>
+<ng-template #elseBlock> Vai mostrar se for false do formato numero 2</ng-template>
+
+
+
+<ul>
+    <li *ngFor="let memesAgrupados of memes">
+        <h2>{{memesAgrupados.categoria}}</h2>
+
+        <div *ngFor="let meme of memesAgrupados.memes let par = even">
+            <li>{{meme.titulo}}</li>
+            <img [src]=" prefixoURL + meme.imagemURL" *ngIf="par" >
+            <h2 *ngIf="!par"> Par</h2>
+        </div>
+
+
+    </li>
+        
+    
+</ul>

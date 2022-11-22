@@ -1,0 +1,19 @@
+
+
+<p>Titulo : {{filme.titulo | uppercase}}</p>
+<p>Score : {{filme.estrelas | number: '1.1-2'}}</p>
+<p>Preço : {{filme.precoAluguel | currency: 'BRL'}}</p>
+<p>Data de lancamento : {{filme.dataLancamento | date: 'short'}}</p>
+
+
+<ul>
+    <li *ngFor="let item of compras">
+        <p>Produto: {{item.produto | uppercase}}</p>
+        <p>Valor: {{item.valor | currency: 'BRL'}}</p>
+        <p>Quantidade: {{item.quantiidade}}</p>
+        <p *ngIf="item.peso != 0; else elseBlock" >Peso: {{item.peso | number: '1.1-2'}}</p>
+        <p>Data {{item.data | date: 'medium'}}</p>
+    </li>
+</ul>
+
+<ng-template #elseBlock><p>Sem Peso</p></ng-template>

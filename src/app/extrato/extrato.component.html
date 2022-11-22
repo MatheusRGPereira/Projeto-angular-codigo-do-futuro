@@ -1,0 +1,38 @@
+<div class="container text-center p-5">
+
+    <div *ngIf="estaCarregando" class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+
+      <div *ngIf="notFound">
+        <h2>Deu erro :(</h2>
+        <button class="btn btn-warning" (click)="carregarExtrato()">Tentar Novamente</button>
+      </div>
+
+
+      <div *ngIf="!estaCarregando && !notFound">
+          <button (click)="paginaAnterior()" [disabled]="pagina === 1" class="btn btn-primary">Página anterior</button>
+          <span class="p-3">Pagina atual: {{pagina}}</span>
+          <button (click)="proximaPagina()" class="btn btn-primary">Proxima Página</button>
+          
+          <table class="table table-hover">
+              <tr>
+                  <th>ID</th>
+                  <th>Data</th>
+                  <th>Descricao</th>
+                  <th>Valor</th>
+                  <th>Categoria</th>
+              </tr>
+          
+              <tr *ngFor="let transacao of transacoes">
+                  <td>{{transacao.id}}</td>
+                  <td>{{transacao.data | date: 'short'}}</td>
+                  <td>{{transacao.descricao}}</td>
+                  <td>{{transacao.valor | currency: 'BRL'}}</td>
+                  <td>{{transacao.categoria}}</td>
+              </tr>
+          </table>     
+      </div>
+
+</div>
+

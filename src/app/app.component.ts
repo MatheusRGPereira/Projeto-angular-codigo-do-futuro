@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contador';
+
+  onVaalorAtualizadoNoContador(novoValor: number){
+    console.log("onValorAtualizadoNoContador", novoValor)
+  }
 }
