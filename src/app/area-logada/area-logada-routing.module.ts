@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalhesContatoComponent } from '../contato/detalhes-contato/detalhes-contato.component';
-import { ListarContatoComponent } from '../contato/listar-contatos/listar-contatos.component';
-import { EstaLogadoGuard } from '../shared/guards/esta-logado/esta-logado.guard';
-import { ExtratoComponent } from './extrato/extrato.component';
-import { HomeComponent } from './home/home.component';
+import { AreaLogadaComponent } from './area-logada/area-logada.component';
 
-const routes: Routes = [
-  ,
-  {
-    path: '',
+
+const routes: Routes = [ {
+  path :'',
+  redirectTo: 'home',
+  pathMatch: 'full'
+},
+{
+  path: '',
+  component: AreaLogadaComponent,
+  children: [{
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
@@ -18,9 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'contatos',
-    loadChildren: () => import('../contato/contato.module').then(m => m.ContatoModule),
-  },
-];
+    loadChildren: () => import('./contato/contato.module').then(m => m.ContatoModule),
+  }]
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

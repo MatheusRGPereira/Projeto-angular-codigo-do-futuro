@@ -9,21 +9,20 @@
         <button class="btn btn-warning" (click)="getContato()">Tentar Novamente</button>
     </div>
 
+    <button class="btn btn-primary m-1" (click)="novoContato()">Novo contato</button>
 
     <div *ngIf="!estaCarregando && !notFound">
-        <table class="table table-hover">
+        <table>
             <tr>
-
                 <th>Nome</th>
                 <th>Ações</th>
-
             </tr>
 
             <tr *ngFor="let contato of contatos">
                 <td>{{contato.nome}}</td>
-                <td>
-                    <button class="btn btn-secondary" (click)="goToDetails(contato.id)">Ver detalhes</button>
-                </td>
+                <td><button class="btn btn-danger" (click)="editarContato(contato.id)">Editar</button></td>
+                <td><button class="btn btn-secondary" (click)="goToDetails(contato.id)">Ver detalhes</button></td>
+                <td><button class="btn btn-danger" (click)="deletarContato(contato.id)">Deletar</button></td>
             </tr>
         </table>
     </div>

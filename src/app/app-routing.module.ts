@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarContatoComponent } from './contato/listar-contatos/listar-contatos.component';
-import { DetalhesContatoComponent } from './contato/detalhes-contato/detalhes-contato.component';
+import { ListarContatoComponent } from './area-logada/contato/listar-contatos/listar-contatos.component';
+import { DetalhesContatoComponent } from './area-logada/contato/detalhes-contato/detalhes-contato.component';
 import { ExtratoComponent } from './area-logada/extrato/extrato.component';
 import { HomeComponent } from './area-logada/home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -11,22 +11,17 @@ import { NaoEstaLogadoGuard } from './shared/guards/nao-esta-logado/nao-esta-log
 
 const routes: Routes = [
   {
-    path:'area-logada',
+    path:'',
    loadChildren: () => import('./area-logada/area-logada.module').then(m => m.AreaLogadaModule),
     canActivate: [EstaLogadoGuard]
-
   },
   {
     path: 'login',
-    component: LoginComponent,
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
     canActivate: [NaoEstaLogadoGuard]
   },
-  { path: '**', component: NaoEncontradoComponent },
-  {
-    path :'',
-    redirectTo: 'area-logada',
-    pathMatch: 'full'
-  }
+  { path: '**', 
+  component: NaoEncontradoComponent },
 ];
 
 

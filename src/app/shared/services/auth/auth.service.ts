@@ -64,4 +64,11 @@ export class AuthService {
         return false;
       }
   }
+
+  logout(){
+    this.usuario = null;
+    this.token = null;
+    localStorage.clear();
+    this.router.navigate(['login'])
+  }
 }

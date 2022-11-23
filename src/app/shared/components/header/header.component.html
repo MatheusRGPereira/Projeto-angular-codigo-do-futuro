@@ -2,16 +2,16 @@
     <h1 class="header_title"> {{title}}</h1>
     <ul class="nav-bar-list">
         <li>
-            <a routerLink="" routerLinkActive="ativado" [routerLinkActiveOptions]="{exact: true}"> Home</a>
+            <a routerLink="/home" routerLinkActive="ativado" [routerLinkActiveOptions]="{exact: true}"> Home</a>
         </li>
         <li>
             <a routerLink="/extrato" routerLinkActive="ativado">Extrato</a>
         </li>
         <li>
-            <a routerLink="/login" routerLinkActive="ativado">Login</a>
+            <a routerLink="/contatos" routerLinkActive="ativado">Contatos</a>
         </li>
         <li>
-            <a routerLink="/contatos" routerLinkActive="ativado">Contatos</a>
+            <button class="btn btn-dark" (click)="logout()">Logout</button>
         </li>
     </ul>
 </header>

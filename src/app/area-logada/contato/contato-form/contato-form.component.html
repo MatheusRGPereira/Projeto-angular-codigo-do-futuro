@@ -1,0 +1,59 @@
+<div class="container pt-5">
+
+    <div class="text-center" *ngIf="estaCarregando">
+        <div class="spinner-border" role="status"> </div>
+    </div>
+
+
+
+    <div *ngIf="notFound">
+        <h2>Deu erro :(</h2>
+        <button class="btn btn-warning" (click)="getContato()">Tentar Novamente</button>
+    </div>
+
+    <div *ngIf="!estaCarregando && !notFound">
+        <form [formGroup]="contatoForm" class="form-group">
+            <div>
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome"
+                    [class.is-invalid]="exibeErro('nome')">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+                [class.is-invalid]="exibeErro('email')">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" placeholder="CPF" formControlName="cpf"
+                    [class.is-invalid]="exibeErro('cpf')">
+            </div>
+
+            <div formGroupName="dadosBancarios">
+            <div class="form-group">
+                <label for="banco">Banco</label>
+                <input type="text" class="form-control" id="banco" placeholder="Banco" formControlName="banco"
+                    [class.is-invalid]="exibeErro('dadosBancarios.banco')">
+            </div>
+            <div class="form-group">
+                <label for="ag">Agencia</label>
+                <input type="text" class="form-control" id="ag" placeholder="Agencia" formControlName="ag"
+                    [class.is-invalid]="exibeErro('dadosBancarios.ag')">
+            </div>
+            <div class="form-group">
+                <label for="cc">Conta-Corrente</label>
+                <input type="text" class="form-control" id="cc" placeholder="Conta-Corrente" formControlName="cc"
+                    [class.is-invalid]="exibeErro('dadosBancarios.cc')">
+            </div>
+        </div>
+
+            <button class="p-2 align-center" (click)="onSubmit()">
+                {{idContato ? 'Salvar Contato' : 'Criar contato'}}
+            </button>
+        </form>
+
+    </div>
+
+
+
+</div>

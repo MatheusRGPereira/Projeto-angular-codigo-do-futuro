@@ -12,8 +12,12 @@ import { LoginComponent } from './login/login.component';
 import { ExtratoComponent } from './area-logada/extrato/extrato.component';
 import { SharedModule } from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
-import { DetalhesContatoComponent } from './contato/detalhes-contato/detalhes-contato.component'
+import { DetalhesContatoComponent } from './area-logada/contato/detalhes-contato/detalhes-contato.component'
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 registerLocaleData(localept, 'pt')
@@ -21,14 +25,16 @@ registerLocaleData(localept, 'pt')
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule . forRoot ( ) ,
   ],
   providers: [{
 

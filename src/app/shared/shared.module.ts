@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -33,6 +35,11 @@ import { FormsModule } from '@angular/forms';
     ContadorComponent,
     HeaderComponent,
     NaoEncontradoComponent,
-  ]
+  ],
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }]
 })
 export class SharedModule { }
